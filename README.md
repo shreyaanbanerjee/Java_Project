@@ -7,10 +7,7 @@
 
 ## Usage
 1. Clone the repository:
-```
-git clone https://github.com/yourusername/mp3player.git
-cd mp3player
-```
+
 2. Build with Maven:
 ```
 mvn clean package
