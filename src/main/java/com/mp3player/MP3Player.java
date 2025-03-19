@@ -1,11 +1,13 @@
 package com.mp3player;
 
-import javazoom.jl.decoder.JavaLayerException;
-import javazoom.jl.player.Player;
 import java.io.FileInputStream;
 import java.io.IOException;
 
+import javazoom.jl.decoder.JavaLayerException;
+import javazoom.jl.player.Player;
+
 public class MP3Player {
+
     private Player player;
     private FileInputStream fileContent;
     private String filePath;
@@ -19,8 +21,6 @@ public class MP3Player {
         try {
             fileContent = new FileInputStream(filePath);
             player = new Player(fileContent);
-            isPlaying = true;
-
             new Thread(() -> {
                 try {
                     player.play();
@@ -30,7 +30,6 @@ public class MP3Player {
                     stop();
                 }
             }).start();
-
             return true;
         } catch (IOException | JavaLayerException err) {
             System.out.println("Error: " + err.getMessage());
@@ -49,7 +48,28 @@ public class MP3Player {
                 System.out.println("Error closing file: " + e.getMessage());
             }
         }
-        isPlaying = false;
+    }
+
+    public static void main(String[] args) {
+        if (args.length == 0) {
+            System.out.println("Please provide the path to an MP3 file");
+            return;
+        }
+
+        String filePath = args[0];
+        MP3Player player = new MP3Player(filePath);
+
+        System.out.println("Playing: " + filePath);
+        boolean success = player.play();
+
+        if (success) {
+            System.out.println("Playback started. Press Enter to stop...");
+            try {
+                System.in.read();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            player.stop();
+        }
     }
 }
-
