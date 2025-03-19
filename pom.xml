@@ -36,7 +36,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>com.mp3player.MP3Player</mainClass>
+                            <mainClass>com.mp3player.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
