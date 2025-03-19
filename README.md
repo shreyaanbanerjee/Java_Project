@@ -15,5 +15,5 @@ mvn clean package
 
 3. Run the JAR directly:
 ```
-java -jar mp3player-1.0-SNAPSHOT-jar-with-dependencies.jar path/to/music.mp3
+java -jar target/mp3player-1.0-SNAPSHOT-jar-with-dependencies.jar path/to/your/file
 ```
