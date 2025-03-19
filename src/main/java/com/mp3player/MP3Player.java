@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class MP3Player {
     private Player player;
-    private FileInputStream fileInputStream;
+    private FileInputStream fileContent;
     private String filePath;
     private volatile boolean isPlaying;
 
@@ -17,23 +17,23 @@ public class MP3Player {
 
     public boolean play() {
         try {
-            fileInputStream = new FileInputStream(filePath);
-            player = new Player(fileInputStream);
+            fileContent = new FileInputStream(filePath);
+            player = new Player(fileContent);
             isPlaying = true;
 
             new Thread(() -> {
                 try {
                     player.play();
-                } catch (JavaLayerException e) {
-                    System.out.println("Error playing MP3 file: " + e.getMessage());
+                } catch (JavaLayerException err) {
+                    System.out.println("Error playing MP3 file: " + err.getMessage());
                 } finally {
                     stop();
                 }
             }).start();
 
             return true;
-        } catch (IOException | JavaLayerException e) {
-            System.out.println("Error: " + e.getMessage());
+        } catch (IOException | JavaLayerException err) {
+            System.out.println("Error: " + err.getMessage());
             return false;
         }
     }
@@ -42,9 +42,9 @@ public class MP3Player {
         if (player != null) {
             player.close();
         }
-        if (fileInputStream != null) {
+        if (fileContent != null) {
             try {
-                fileInputStream.close();
+                fileContent.close();
             } catch (IOException e) {
                 System.out.println("Error closing file: " + e.getMessage());
             }
