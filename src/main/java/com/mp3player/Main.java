@@ -3,7 +3,6 @@ package com.mp3player;
 import java.io.IOException;
 
 public class Main {
-    // ANSI escape codes for colored text
     private static final String RESET = "\u001B[0m", BLUE = "\u001B[36m", GREEN = "\u001B[32m",  RED = "\u001B[31m", BOLD = "\u001B[1m";
 
     public static void main(String[] args) {
@@ -12,16 +11,14 @@ public class Main {
             System.out.println("Usage: java -jar mp3player.jar <MP3_FILE_PATH>");
             return;
         }
-
         String filePath = args[0];
-        MP3Player player = new MP3Player();
+        MP3Player player = new MP3Player(filePath);
 
         System.out.println(BLUE + "\n🎵 MP3 Player" + RESET);
         System.out.println("──────────────────────────────────────");
         System.out.println(GREEN + "▶ Playing: " + filePath + RESET);
 
-        boolean success = player.play(filePath);
-
+        boolean success = player.play();
         if (success) {
             System.out.println(BLUE + "\n⌨ Press Enter to stop playback..." + RESET);
             try {

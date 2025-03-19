@@ -8,22 +8,26 @@ import java.io.IOException;
 public class MP3Player {
     private Player player;
     private FileInputStream fileInputStream;
+    private String filePath;
     private volatile boolean isPlaying;
 
-    public boolean play(String filePath) {
+    public MP3Player(String filePath) {
+        this.filePath = filePath;
+    }
+
+    public boolean play() {
         try {
             fileInputStream = new FileInputStream(filePath);
             player = new Player(fileInputStream);
             isPlaying = true;
 
-            // Create a new thread for playing music
             new Thread(() -> {
                 try {
                     player.play();
                 } catch (JavaLayerException e) {
                     System.out.println("Error playing MP3 file: " + e.getMessage());
                 } finally {
-                    stop(); // Ensure resources are closed after playback
+                    stop();
                 }
             }).start();
 
