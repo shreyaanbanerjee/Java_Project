@@ -8,12 +8,18 @@
 ## Usage
 1. Clone the repository:
 
-2. Build with Maven:
+### Building from source
+
+2.Build with Maven:
 ```
 mvn clean package
 ```
-
-3. Run the JAR directly:
+3. Run the JAR:
 ```
-java -jar ..\dist\mp3player-1.0-SNAPSHOT-jar-with-dependencies.jar ..\assets\sample-6s.mp3
+java -jar target/mp3player-1.0-SNAPSHOT-jar-with-dependencies.jar assets/sample-6s.mp3
+```
+
+### Using the pre-built JAR
+```
+java -jar dist/mp3player-1.0-SNAPSHOT-jar-with-dependencies.jar assets/sample-6s.mp3
 ```
