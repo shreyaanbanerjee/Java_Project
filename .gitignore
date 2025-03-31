@@ -1,35 +1,34 @@
-# Compiled class file
+# Ignore build directories
+/bin/
+/build/
+
+# Ignore IDE-specific files
+/.idea/
+/*.iml
+/.classpath
+/.project
+/.settings/
+
+# Ignore Maven and Gradle directories
+/target/
+/.gradle/
+/*.log
+
+# Ignore compiled files
 *.class
 
-# Log file
-*.log
+# Ignore temporary files
+*.tmp
+*.swp
+*.swo
 
-# BlueJ files
-*.ctxt
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-libs
-# Package Files #
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
+# Ignore dependency directories
+/node_modules/
+/lib/
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
-
-# Maven specific
-target/
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
-release.properties
-dependency-reduced-pom.xml
-buildNumber.properties
-.mvn/timing.properties
-.mvn/wrapper/maven-wrapper.jar
+# Ignore environment files
+.env
