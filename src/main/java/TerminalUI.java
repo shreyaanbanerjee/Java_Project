@@ -18,8 +18,8 @@ public class TerminalUI {
             mp3Folder.mkdirs();
         }
         
-        // Do not change the file path used in the original code
         musicLibrary = new MusicLibrary(mp3Directory, mp3Directory + File.separator + "music_library.txt");
+    
         musicLibrary.updateLibrary();
         
         playlistManager = new PlaylistManager(playlistsDirectory);
@@ -41,7 +41,7 @@ public class TerminalUI {
                         currentPlayer.stop();
                     }
                     System.out.println("Exiting MP3 Player.");
-                    return;
+                    System.exit(1);
                 default:
                     System.out.println("Invalid choice. Try again.");
             }
@@ -57,6 +57,7 @@ public class TerminalUI {
     }
 
     private void listAndPlaySong() {
+        
         List<String> songPaths = musicLibrary.getSongList();
         if (songPaths.isEmpty()) {
             System.out.println("No MP3 files found in " + mp3Folder.getAbsolutePath());
@@ -64,6 +65,7 @@ public class TerminalUI {
         }
         System.out.println("\nAvailable Songs:");
         for (int i = 0; i < songPaths.size(); i++) {
+            
             String fileName = new File(songPaths.get(i)).getName();
             System.out.println((i + 1) + ". " + fileName);
         }
@@ -90,9 +92,9 @@ public class TerminalUI {
 
     private void playbackControls() {
         System.out.println("\nPlayback Controls:");
-        System.out.println("l - Enable looping");
-        System.out.println("s - Skip forward 10 seconds");
-        System.out.println("f - Fast forward 30 seconds");
+        System.out.println("l - Toggle loop");
+        // System.out.println("s - Skip forward 10 seconds");
+        // System.out.println("f - Fast forward");
         System.out.println("q - Stop playback and return to main menu");
         while (true) {
             System.out.print("Enter command: ");
@@ -100,13 +102,14 @@ public class TerminalUI {
             if (command.equals("l")) {
                 currentPlayer.setLoop(true);
                 System.out.println("Looping enabled.");
-            } else if (command.equals("s")) {
-                currentPlayer.skipForward(10.0f);
-                System.out.println("Skipped forward 10 seconds.");
-            } else if (command.equals("f")) {
-                currentPlayer.skipForward(30.0f);
-                System.out.println("Fast forwarded 30 seconds.");
-            } else if (command.equals("q")) {
+            } 
+            // else if (command.equals("s")) {
+            //     currentPlayer.skipForward();
+            // } 
+            // else if (command.equals("f")) {
+            //     currentPlayer.fastForward();
+            // } 
+            else if (command.equals("q")) {
                 currentPlayer.stop();
                 break;
             } else {
@@ -179,13 +182,5 @@ public class TerminalUI {
                     System.out.println("Invalid choice.");
             }
         }
-    }
-
-    public static void main(String[] args) {
-        // These file paths are kept as given in the original code.
-        String mp3Directory = "./songs"; // Folder for your MP3s (your music library)
-        String playlistsDirectory = "./playlists"; // Folder for playlists
-        TerminalUI ui = new TerminalUI(mp3Directory, playlistsDirectory);
-        ui.start();
     }
 }
