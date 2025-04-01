@@ -33,10 +33,10 @@ public class TerminalUI {
                 case "1":
                     listAndPlaySong();
                     break;
+                // case "2":
+                //     managePlaylists();
+                //     break;
                 case "2":
-                    managePlaylists();
-                    break;
-                case "3":
                     if (currentPlayer != null) {
                         currentPlayer.stop();
                     }
@@ -51,8 +51,8 @@ public class TerminalUI {
     private void showMainMenu() {
         System.out.println("\n==== MP3 Player Main Menu ====");
         System.out.println("1. List and play songs");
-        System.out.println("2. Manage playlists");
-        System.out.println("3. Exit");
+        //System.out.println("2. Manage playlists");
+        System.out.println("2. Exit");
         System.out.print("Enter your choice: ");
     }
 
@@ -118,69 +118,69 @@ public class TerminalUI {
         }
     }
 
-    private void managePlaylists() {
-        while (true) {
-            System.out.println("\n==== Playlist Manager ====");
-            System.out.println("1. Create new playlist");
-            System.out.println("2. Rename playlist");
-            System.out.println("3. Add song to playlist");
-            System.out.println("4. Remove song from playlist");
-            System.out.println("5. Exit playlist manager");
-            System.out.print("Enter your choice: ");
-            String choice = scanner.nextLine().trim();
-            switch (choice) {
-                case "1":
-                    System.out.print("Enter new playlist name: ");
-                    String newPlaylist = scanner.nextLine().trim();
-                    if (playlistManager.createPlaylist(newPlaylist)) {
-                        System.out.println("Playlist created successfully.");
-                    } else {
-                        System.out.println("Could not create playlist (maybe it already exists).");
-                    }
-                    break;
-                case "2":
-                    System.out.print("Enter current playlist name: ");
-                    String oldName = scanner.nextLine().trim();
-                    System.out.print("Enter new playlist name: ");
-                    String renamed = scanner.nextLine().trim();
-                    if (playlistManager.renamePlaylist(oldName, renamed)) {
-                        System.out.println("Playlist renamed successfully.");
-                    } else {
-                        System.out.println("Could not rename playlist.");
-                    }
-                    break;
-                case "3":
-                    System.out.print("Enter the full path of the MP3 file to add: ");
-                    String songPath = scanner.nextLine().trim();
-                    File songFile = new File(songPath);
-                    if (!songFile.exists()) {
-                        System.out.println("File does not exist.");
-                        break;
-                    }
-                    System.out.print("Enter the playlist name: ");
-                    String targetPlaylist = scanner.nextLine().trim();
-                    if (playlistManager.addSongToPlaylist(songFile, targetPlaylist)) {
-                        System.out.println("Song added to playlist.");
-                    } else {
-                        System.out.println("Failed to add song to playlist.");
-                    }
-                    break;
-                case "4":
-                    System.out.print("Enter the playlist name: ");
-                    String plName = scanner.nextLine().trim();
-                    System.out.print("Enter the song name (with extension): ");
-                    String songName = scanner.nextLine().trim();
-                    if (playlistManager.removeSongFromPlaylist(songName, plName)) {
-                        System.out.println("Song removed from playlist.");
-                    } else {
-                        System.out.println("Failed to remove song.");
-                    }
-                    break;
-                case "5":
-                    return;
-                default:
-                    System.out.println("Invalid choice.");
-            }
-        }
-    }
+    // private void managePlaylists() {
+    //     while (true) {
+    //         System.out.println("\n==== Playlist Manager ====");
+    //         System.out.println("1. Create new playlist");
+    //         System.out.println("2. Rename playlist");
+    //         System.out.println("3. Add song to playlist");
+    //         System.out.println("4. Remove song from playlist");
+    //         System.out.println("5. Exit playlist manager");
+    //         System.out.print("Enter your choice: ");
+    //         String choice = scanner.nextLine().trim();
+    //         switch (choice) {
+    //             case "1":
+    //                 System.out.print("Enter new playlist name: ");
+    //                 String newPlaylist = scanner.nextLine().trim();
+    //                 if (playlistManager.createPlaylist(newPlaylist)) {
+    //                     System.out.println("Playlist created successfully.");
+    //                 } else {
+    //                     System.out.println("Could not create playlist (maybe it already exists).");
+    //                 }
+    //                 break;
+    //             case "2":
+    //                 System.out.print("Enter current playlist name: ");
+    //                 String oldName = scanner.nextLine().trim();
+    //                 System.out.print("Enter new playlist name: ");
+    //                 String renamed = scanner.nextLine().trim();
+    //                 if (playlistManager.renamePlaylist(oldName, renamed)) {
+    //                     System.out.println("Playlist renamed successfully.");
+    //                 } else {
+    //                     System.out.println("Could not rename playlist.");
+    //                 }
+    //                 break;
+    //             case "3":
+    //                 System.out.print("Enter the full path of the MP3 file to add: ");
+    //                 String songPath = scanner.nextLine().trim();
+    //                 File songFile = new File(songPath);
+    //                 if (!songFile.exists()) {
+    //                     System.out.println("File does not exist.");
+    //                     break;
+    //                 }
+    //                 System.out.print("Enter the playlist name: ");
+    //                 String targetPlaylist = scanner.nextLine().trim();
+    //                 if (playlistManager.addSongToPlaylist(songFile, targetPlaylist)) {
+    //                     System.out.println("Song added to playlist.");
+    //                 } else {
+    //                     System.out.println("Failed to add song to playlist.");
+    //                 }
+    //                 break;
+    //             case "4":
+    //                 System.out.print("Enter the playlist name: ");
+    //                 String plName = scanner.nextLine().trim();
+    //                 System.out.print("Enter the song name (with extension): ");
+    //                 String songName = scanner.nextLine().trim();
+    //                 if (playlistManager.removeSongFromPlaylist(songName, plName)) {
+    //                     System.out.println("Song removed from playlist.");
+    //                 } else {
+    //                     System.out.println("Failed to remove song.");
+    //                 }
+    //                 break;
+    //             case "5":
+    //                 return;
+    //             default:
+    //                 System.out.println("Invalid choice.");
+    //         }
+    //     }
+    // }
 }
