@@ -12,7 +12,7 @@ public class TerminalUI {
     private MusicLibrary musicLibrary;
     private String mp3Directory;
 
-    public TerminalUI(String mp3Directory, String playlistsDirectory) {
+    public TerminalUI(String mp3Directory) {
         scanner = new Scanner(System.in);
         this.mp3Directory = mp3Directory;
         mp3Folder = new File(mp3Directory);

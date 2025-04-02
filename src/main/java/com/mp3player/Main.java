@@ -6,9 +6,8 @@ public class Main {
     public static void main(String[] args) {
 
         String mp3Directory = "./songs";
-        String playlistsDirectory = "./playlists";
 
-        TerminalUI ui = new TerminalUI(mp3Directory, playlistsDirectory);
+        TerminalUI ui = new TerminalUI(mp3Directory);
         ui.start();
     }
 }
