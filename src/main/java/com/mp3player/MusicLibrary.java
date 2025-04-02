@@ -13,11 +13,7 @@ public class MusicLibrary {
     private File libraryFile;
     private File musicFolder;
 
-    /**
-     * @param musicFolderPath The folder where your MP3 files are stored.
-     * @param libraryFilePath The file path where the list of music files will
-     * be saved.
-     */
+
     public MusicLibrary(String musicFolderPath, String libraryFilePath) {
         this.musicFolder = new File(musicFolderPath);
         if (!musicFolder.exists()) {
