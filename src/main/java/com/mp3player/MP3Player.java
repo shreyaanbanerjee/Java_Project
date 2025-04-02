@@ -1,8 +1,12 @@
-import javazoom.jl.player.advanced.AdvancedPlayer;
-import java.io.FileInputStream;
+package com.mp3player;
+
 import java.io.File;
+import java.io.FileInputStream;
+
+import javazoom.jl.player.advanced.AdvancedPlayer;
 
 public class MP3Player implements Runnable {
+
     private File mp3File;
     private AdvancedPlayer player;
     private boolean loop;
@@ -40,13 +44,11 @@ public class MP3Player implements Runnable {
     //     // Implementation would require tracking frames and using AdvancedPlayer’s play(int start, int end) methods.
     //     System.out.println("Skipping forward 10 seconds (simulated)...");
     // }
-
     // // Simulated method for fast forwarding.
     // public void fastForward() {
     //     // Implementation would similarly adjust the playback position.
     //     System.out.println("Fast forwarding (simulated)...");
     // }
-
     // The run method is used for playback in a thread.
     @Override
     public void run() {

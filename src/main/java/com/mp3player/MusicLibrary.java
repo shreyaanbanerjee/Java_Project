@@ -1,14 +1,24 @@
+package com.mp3player;
 // MusicLibrary.java
-import java.io.*;
-import java.util.*;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MusicLibrary {
+
     private File libraryFile;
     private File musicFolder;
-    
+
     /**
      * @param musicFolderPath The folder where your MP3 files are stored.
-     * @param libraryFilePath The file path where the list of music files will be saved.
+     * @param libraryFilePath The file path where the list of music files will
+     * be saved.
      */
     public MusicLibrary(String musicFolderPath, String libraryFilePath) {
         this.musicFolder = new File(musicFolderPath);
@@ -20,12 +30,12 @@ public class MusicLibrary {
             try {
                 libraryFile.createNewFile();
                 updateLibrary();
-            } catch(IOException e) {
+            } catch (IOException e) {
                 System.out.println("Error creating library file: " + e.getMessage());
             }
         }
     }
-    
+
     // Scan the music folder and update the library file with the list of MP3 file paths.
     public void updateLibrary() {
         File[] songs = musicFolder.listFiles((dir, name) -> name.toLowerCase().endsWith(".mp3"));
@@ -39,7 +49,7 @@ public class MusicLibrary {
             System.out.println("Error updating music library: " + e.getMessage());
         }
     }
-    
+
     // Read the library file and return a list of song file paths.
     public List<String> getSongList() {
         List<String> songList = new ArrayList<>();

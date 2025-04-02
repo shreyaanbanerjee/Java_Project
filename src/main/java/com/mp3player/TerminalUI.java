@@ -1,14 +1,17 @@
+package com.mp3player;
+
 import java.io.File;
 import java.util.List;
 import java.util.Scanner;
 
 public class TerminalUI {
+
     private Scanner scanner;
     private File mp3Folder;
     private PlaylistManager playlistManager;
     private MP3Player currentPlayer;
     private MusicLibrary musicLibrary;
-    private String mp3Directory; 
+    private String mp3Directory;
 
     public TerminalUI(String mp3Directory, String playlistsDirectory) {
         scanner = new Scanner(System.in);
@@ -17,11 +20,11 @@ public class TerminalUI {
         if (!mp3Folder.exists()) {
             mp3Folder.mkdirs();
         }
-        
+
         musicLibrary = new MusicLibrary(mp3Directory, mp3Directory + File.separator + "music_library.txt");
-    
+
         musicLibrary.updateLibrary();
-        
+
         playlistManager = new PlaylistManager(playlistsDirectory);
     }
 
@@ -75,7 +78,7 @@ public class TerminalUI {
                 System.out.println("\n[ERROR] Invalid selection. Try again.");
                 return;
             }
-           
+
             if (currentPlayer != null) {
                 currentPlayer.stop();
             }
@@ -111,5 +114,3 @@ public class TerminalUI {
         }
     }
 }
-
-

@@ -1,5 +1,7 @@
-C:\Users\Shivi\dev\SJava\Java_Project\.\songs\eg1.mp3
-C:\Users\Shivi\dev\SJava\Java_Project\.\songs\eg2.mp3
-C:\Users\Shivi\dev\SJava\Java_Project\.\songs\eg3.mp3
-C:\Users\Shivi\dev\SJava\Java_Project\.\songs\eg4.mp3
-C:\Users\Shivi\dev\SJava\Java_Project\.\songs\eg5.mp3
+/Users/ponk6745/Documents/Java_Project/./songs/eg1.mp3
+/Users/ponk6745/Documents/Java_Project/./songs/eg3.mp3
+/Users/ponk6745/Documents/Java_Project/./songs/openingfr.mp3
+/Users/ponk6745/Documents/Java_Project/./songs/eg2.mp3
+/Users/ponk6745/Documents/Java_Project/./songs/eg5.mp3
+/Users/ponk6745/Documents/Java_Project/./songs/eg4.mp3
+/Users/ponk6745/Documents/Java_Project/./songs/tumHeHo.mp3
