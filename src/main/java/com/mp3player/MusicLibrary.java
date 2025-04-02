@@ -32,7 +32,9 @@ public class MusicLibrary {
         try (BufferedReader br = new BufferedReader(new FileReader(libraryFile))) {
             String line;
             while ((line = br.readLine()) != null) {
-                songList.add(line);
+                if (!line.trim().isEmpty()) {
+                    songList.add(line);
+                }
             }
         } catch (IOException e) {
             System.out.println("Error reading music library: " + e.getMessage());
