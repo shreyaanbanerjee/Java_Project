@@ -19,14 +19,12 @@ public class MP3Player implements Runnable {
         this.stopRequested = false;
     }
 
-    // Start playback in a new thread.
     public void play() {
         stopRequested = false;
         playbackThread = new Thread(this);
         playbackThread.start();
     }
 
-    // Stop playback.
     public void stop() {
         stopRequested = true;
         if (player != null) {
@@ -34,7 +32,6 @@ public class MP3Player implements Runnable {
         }
     }
 
-    // Toggle looping.
     public void setLoop(boolean loop) {
         this.loop = loop;
     }
