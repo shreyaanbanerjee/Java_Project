@@ -8,7 +8,6 @@ public class TerminalUI {
 
     private Scanner scanner;
     private File mp3Folder;
-    private PlaylistManager playlistManager;
     private MP3Player currentPlayer;
     private MusicLibrary musicLibrary;
     private String mp3Directory;
@@ -22,10 +21,6 @@ public class TerminalUI {
         }
 
         musicLibrary = new MusicLibrary(mp3Directory, mp3Directory + File.separator + "music_library.txt");
-
-        musicLibrary.updateLibrary();
-
-        playlistManager = new PlaylistManager(playlistsDirectory);
     }
 
     public void start() {
