@@ -1,5 +1,4 @@
 package com.mp3player;
-// MusicLibrary.java
 
 import java.io.BufferedReader;
 import java.io.File;
