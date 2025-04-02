@@ -12,7 +12,6 @@ public class MusicLibrary {
     private File libraryFile;
     private File musicFolder;
 
-
     public MusicLibrary(String musicFolderPath, String libraryFilePath) {
         this.musicFolder = new File(musicFolderPath);
         if (!musicFolder.exists()) {
@@ -22,7 +21,6 @@ public class MusicLibrary {
         if (!libraryFile.exists()) {
             try {
                 libraryFile.createNewFile();
-                // updateLibrary();
             } catch (IOException e) {
                 System.out.println("Error creating library file: " + e.getMessage());
             }
